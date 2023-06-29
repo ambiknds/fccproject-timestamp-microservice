@@ -24,7 +24,7 @@ var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
-//timeframe microservice
+//timestamp microservice
 app.get('/api', (req, res) => {
   res.json({
     unix: new Date().getTime(),
