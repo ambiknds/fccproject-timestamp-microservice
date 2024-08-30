@@ -25,13 +25,6 @@ var listener = app.listen(process.env.PORT, function() {
 });
 
 //timestamp microservice
-app.get('/api', (req, res) => {
-  res.json({
-    unix: new Date().getTime(),
-    utc: new Date().toUTCString(),
-
-  });
-})
 
 const isInvalidDate = (date) => date.toUTCString() === "Invalid Date";
 
@@ -51,7 +44,13 @@ app.get('/api/:date', (req, res) => {
   })
 
 })
+app.get('/api', (req, res) => {
+  return res.json({
+    unix: new Date().getTime(),
+    utc: new Date().toUTCString()
 
+  });
+})
 
 app.get('/api/:timestamp', (req, res) => {
   const timestamp = req.params.timestamp;
